@@ -1,0 +1,6 @@
+FROM nnurphy/context
+
+ENV TEXDIR=/opt/context/tex
+ENV OSFONTDIR="/usr/share/fonts/opentype/noto"
+RUN set -eux \
+  ; . $TEXDIR/setuptex $TEXDIR
