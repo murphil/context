@@ -1,12 +1,11 @@
-FROM debian:buster-slim
+FROM ubuntu:focal
 
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 ENV TIMEZONE=Asia/Shanghai
 
 # Install packages to download ConTeXt minimals
-RUN sed -i 's/\(.*\)\(security\|deb\).debian.org\(.*\)main/\1ftp.cn.debian.org\3main contrib non-free/g' /etc/apt/sources.list \
-  && apt-get update \
+RUN apt-get update \
   && apt-get install -y --no-install-recommends rsync fonts-noto-cjk wget \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
